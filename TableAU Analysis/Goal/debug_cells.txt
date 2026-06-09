@@ -1,0 +1,10 @@
+﻿R12H type=NoneType
+
+R17H type=NoneType
+
+R17I type=NoneType
+
+R19I type=NoneType
+
+R21I type=NoneType
+

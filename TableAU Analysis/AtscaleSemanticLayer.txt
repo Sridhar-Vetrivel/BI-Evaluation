@@ -1,0 +1,21 @@
+Adscale - semantic layer
+
+What is the use of Adscale?
+
+Building reports on top of it
+
+What is the approach we can take towards this
+
+List the parameters that we to look into.
+Why this/ Why not that
+
+gaps/nuances
+
+Approach along with evaluation
+
+
+Requirements
+Approach
+Parameters
+Question
+

@@ -1,0 +1,30 @@
+﻿Row 12 | Library of standard chart types (bar, line, scatter, pie, waterfall, funnel, bullet)
+  H: "Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a\nAppSource bullet visuals: https://appsource.microsoft.com/ (search 'bull"
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/dataview_examples.htm\n'
+Row 13 | Advanced/specialized chart types (heatmaps, treemaps, Sankey, chord, small multiples)
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-small-multiples\nhttps://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-treemaps'
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/buildexamples_treemap.htm\n'
+Row 14 | Custom visualization support (D3.js, Vega-Lite, marketplace extensions)
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/developer/visuals/\nhttps://appsource.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals'
+  I: 'Official documentation:\nhttps://tableau.github.io/extensions-api/\nhttps://exchange.tableau.com/extensions'
+Row 15 | Conditional formatting and dynamic visual properties
+  H: 'POC steps (Parquet-based — AtScale not yet available):\n1. In Power BI Desktop: Get Data → Parquet, point at files in udi_data_gen\\output\\parquet\\ (reported_sales.parquet, brand_targets.parquet, unit.p'
+  I: 'POC steps (Parquet-based — AtScale not yet available):\n1. In Tableau Desktop (2024.2+): use the Parquet file connector to load the same files from udi_data_gen\\output\\parquet\\. If on an older Tableau '
+Row 16 | Cross-filtering and drill-down/drill-through behavior
+  H: 'POC steps (Parquet-based — AtScale not yet available):\n1. Load brand.parquet, unit.parquet, reported_sales.parquet, dimdate.parquet, and unit_ranking_base.parquet from udi_data_gen\\output\\parquet\\.\n2.'
+  I: 'POC steps (Parquet-based — AtScale not yet available):\n1. Load the same files from udi_data_gen\\output\\parquet\\ via the Parquet connector (or Hyper extracts).\n2. Define a dimension hierarchy Brand → U'
+Row 17 | Tooltip customization and rich interactivity
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips-page'
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/viz_in_tooltip.htm\nhttps://help.tableau.com/current/pro/desktop/en-us/tooltips.htm'
+Row 18 | Dashboard layout flexibility (pixel-perfect vs. responsive grid)
+  H: 'POC steps (Parquet-based — AtScale not yet available):\n1. Pick a representative target — e.g., a Brand-level executive scorecard with KPI cards, a Unit performance ranking, a revenue trend line, and a'
+  I: 'POC steps (Parquet-based — AtScale not yet available):\n1. Build the SAME target dashboard in Tableau Desktop, mixing Tiled and Floating layout containers.\n2. Load the same parquet files from udi_data_'
+Row 19 | Theming and branding consistency across reports
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes#import-custom-re'
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/formatting_workbook.htm\nhttps://help.tableau.com/current/pro/desktop/en-us/save_savework_template.htm'
+Row 20 | Animation and transitions for storytelling
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-scatter#add-play-axis\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-bookmarks'
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/story_create.htm\nhttps://help.tableau.com/current/pro/desktop/en-us/formatting_animations.htm'
+Row 21 | Accessibility of visuals (screen reader compatibility, color-blind palettes)
+  H: 'Official documentation:\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-overview\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-creatin'
+  I: 'Official documentation:\nhttps://help.tableau.com/current/pro/desktop/en-us/accessibility_overview.htm\nhttps://www.tableau.com/about/legal/accessibility (VPAT)'

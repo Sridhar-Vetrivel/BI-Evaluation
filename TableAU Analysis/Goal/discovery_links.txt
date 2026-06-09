@@ -1,0 +1,115 @@
+﻿=== Row 12: Library of standard chart types (bar, line, scatter, pie, waterfall, funnel, bullet) ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a
+AppSource bullet visuals: https://appsource.microsoft.com/ (search 'bullet chart')
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/dataview_examples.htm
+
+
+=== Row 13: Advanced/specialized chart types (heatmaps, treemaps, Sankey, chord, small multiples) ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-small-multiples
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-treemaps
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/buildexamples_treemap.htm
+
+
+=== Row 14: Custom visualization support (D3.js, Vega-Lite, marketplace extensions) ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/developer/visuals/
+https://appsource.microsoft.com/en-us/marketplace/apps?product=power-bi-visuals
+I: Official documentation:
+https://tableau.github.io/extensions-api/
+https://exchange.tableau.com/extensions
+
+=== Row 15: Conditional formatting and dynamic visual properties ===
+H: POC steps (Parquet-based — AtScale not yet available):
+1. In Power BI Desktop: Get Data → Parquet, point at files in udi_data_gen\output\parquet\ (reported_sales.parquet, brand_targets.parquet, unit.parquet, brand.parquet, dimdate.parquet).
+2. Build the model: relationships unit↔brand, reported_sales↔unit, brand_targets↔brand, all↔dimdate (calendar).
+3. Create measures: [Actual Revenue], [Target Revenue], [Variance] = Actual − Target, [Variance %] = DIVIDE(Variance, Target).
+4. Build a matrix visual with Brand and Unit on rows, period on columns; place Actual, Target, Variance, Variance % as values.
+5. Apply conditional formatting: background color on Variance (red/green by sign), data bars on Actual, icons on Variance %. Validate cell-level granularity.
+6. Add a field parameter to toggle the displayed measure between $ and % views.
+7. Capture screenshots, authoring time, and any formatting gaps (null handling, large negatives, totals).
+Caveat: this validates Power BI's native conditional formatting, NOT the AtScale pushdown behavior. Re-run row-7 (Live vs Import) once AtScale is available.
+I: POC steps (Parquet-based — AtScale not yet available):
+1. In Tableau Desktop (2024.2+): use the Parquet file connector to load the same files from udi_data_gen\output\parquet\. If on an older Tableau version, convert Parquet → Hyper via Tableau Prep Builder or the Python Hyper API first.
+2. Establish relationships in the Tableau data model: unit↔brand, reported_sales↔unit, brand_targets↔brand, all↔dimdate.
+3. Create calculated fields: Actual, Target, Variance, Variance %.
+4. Build an equivalent matrix using a text table with Brand and Unit on Rows, period on Columns; Measure Names/Values for the four measures.
+5. Apply conditional color on Variance via calculated color field; use mark properties for data-bar-style and icon effects.
+6. Use a parameter to toggle $ vs % display; bind via a calc field.
+7. Record authoring time and document any cell-level formatting gaps relative to Power BI.
+Caveat: this validates Tableau's native conditional formatting, NOT AtScale pushdown. Re-run row-7 (Live vs Extract) once AtScale is available.
+
+=== Row 16: Cross-filtering and drill-down/drill-through behavior ===
+H: POC steps (Parquet-based — AtScale not yet available):
+1. Load brand.parquet, unit.parquet, reported_sales.parquet, dimdate.parquet, and unit_ranking_base.parquet from udi_data_gen\output\parquet\.
+2. Define a hierarchy Brand → Unit using fields from brand and unit tables.
+3. Build a page with: a Brand slicer, KPI cards (Total Revenue, Avg Daily Sales), a bar chart of Revenue by Unit, and a line chart of Revenue over time.
+4. Validate automatic cross-filtering — selecting a brand in the slicer should propagate across all visuals on the page.
+5. Enable drill-down on the bar chart through the Brand → Unit hierarchy; verify each level fires a correctly-aggregated query.
+6. Configure a drill-through page to a Unit detail report; right-click a unit to navigate, passing context.
+7. Measure interaction latency at each level; note any unexpected re-aggregation behavior.
+Caveat: Parquet files are loaded in Import mode (no DirectQuery against files). The pushdown behavior against AtScale will differ — re-validate latency once AtScale is in play.
+I: POC steps (Parquet-based — AtScale not yet available):
+1. Load the same files from udi_data_gen\output\parquet\ via the Parquet connector (or Hyper extracts).
+2. Define a dimension hierarchy Brand → Unit by dragging Unit onto Brand in the data pane.
+3. Build an equivalent dashboard: Brand filter, KPI text boxes, bar chart by Unit, time-series line chart.
+4. Configure a Filter Action triggered by the Brand selector to apply across all worksheets on the dashboard.
+5. Use drilldown on the Brand → Unit hierarchy on the bar chart; verify aggregations.
+6. Build a drill-to-detail worksheet; configure a Dashboard Action (run on Select) to navigate with unit context.
+7. Use Performance Recording to measure latency per level and inspect the underlying queries.
+Caveat: Parquet is loaded as a Hyper extract (or live read of the file) — not equivalent to Live connection against AtScale. Re-validate once AtScale is available.
+
+=== Row 17: Tooltip customization and rich interactivity ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips-page
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/viz_in_tooltip.htm
+https://help.tableau.com/current/pro/desktop/en-us/tooltips.htm
+
+=== Row 18: Dashboard layout flexibility (pixel-perfect vs. responsive grid) ===
+H: POC steps (Parquet-based — AtScale not yet available):
+1. Pick a representative target — e.g., a Brand-level executive scorecard with KPI cards, a Unit performance ranking, a revenue trend line, and a guest-satisfaction heatmap.
+2. Load reported_sales, brand_targets, unit, brand, guest_satisfaction, dimdate from udi_data_gen\output\parquet\.
+3. Build the dashboard in Power BI Desktop using the grid + snap canvas; align visuals manually.
+4. Author a separate Mobile Layout view for the same report (required for mobile fidelity in PBI).
+5. Record authoring time, number of manual pixel-alignment adjustments, and any layout limitations.
+6. Test rendering on desktop (web + Desktop), Power BI mobile app emulator, and tablet view.
+7. Document fidelity gaps: text wrap, matrix overflow, image scaling, white-space management.
+Caveat: layout authoring effort is independent of the data source — Parquet vs AtScale should not affect this comparison.
+I: POC steps (Parquet-based — AtScale not yet available):
+1. Build the SAME target dashboard in Tableau Desktop, mixing Tiled and Floating layout containers.
+2. Load the same parquet files from udi_data_gen\output\parquet\ (Parquet connector or Hyper extracts).
+3. Use Device Designer to author Desktop / Tablet / Phone layouts within the same workbook.
+4. Record authoring time and pixel-alignment effort vs Power BI; compare apples-to-apples.
+5. Publish to Tableau Cloud (or Server, if available); test on web, iPad, and Tableau Mobile.
+6. Document layout fidelity gaps side-by-side with the Power BI version.
+Caveat: layout effort is data-source-independent — finding should carry over to AtScale.
+
+=== Row 19: Theming and branding consistency across reports ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes#import-custom-report-themes
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/formatting_workbook.htm
+https://help.tableau.com/current/pro/desktop/en-us/save_savework_template.htm
+
+=== Row 20: Animation and transitions for storytelling ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-scatter#add-play-axis
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-bookmarks
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/story_create.htm
+https://help.tableau.com/current/pro/desktop/en-us/formatting_animations.htm
+
+=== Row 21: Accessibility of visuals (screen reader compatibility, color-blind palettes) ===
+H: Official documentation:
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-overview
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-creating-reports
+I: Official documentation:
+https://help.tableau.com/current/pro/desktop/en-us/accessibility_overview.htm
+https://www.tableau.com/about/legal/accessibility (VPAT)
+

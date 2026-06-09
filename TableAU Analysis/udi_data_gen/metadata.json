@@ -1,0 +1,1747 @@
+{
+  "source_file": "UDI Model Tables.xlsx",
+  "tables": {
+    "Availability": {
+      "name": "Availability",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "date",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "OpenHours",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "OperatingHours",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Closed",
+          "sql_type": "bit",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "PickupAvailable",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "PickupDisabled",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "DispatchAvailable",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "DispatchDisabled",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CurbsideAvailable",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CurbsideDisabled",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CombinedAvailable",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CombinedDisabled",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "BrandStandardOnlineHours",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "BrandStandardOperatingHours",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Brand": {
+      "name": "Brand",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "BrandName",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandType",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "InternationalFlag",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandSort",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Concept",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandCategory",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandFoodSafetySource",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandScorecardRankingTimeframe",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "dimension",
+      "primary_key": [
+        "BrandSequence"
+      ]
+    },
+    "Brand Targets": {
+      "name": "Brand Targets",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "GiftCardSalesTarget",
+          "sql_type": "money",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "LoyaltyEnrollmentTarget",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ReportedSalesTarget",
+          "sql_type": "money",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "GuestFocusTopScoreTarget",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "GuestFocusSurveyTarget",
+          "sql_type": "bigint",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "OffPremiseTarget",
+          "sql_type": "money",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "CalendarDate"
+      ]
+    },
+    "Food Safety": {
+      "name": "Food Safety",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CurrentFoodSafetyAudit",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FoodSafetyRating",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FoodSafetyRatingSort",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FoodSafetyCriticals",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FoodSafetyScore",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FoodSafetyAudits",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Catering": {
+      "name": "Catering",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "FirstPartyNetSales",
+          "sql_type": "decimal",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartyNetSales",
+          "sql_type": "decimal",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Digital Sales": {
+      "name": "Digital Sales",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "ThirdPartyNetSales",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartyItems",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartyNetSales",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartyItems",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "OtherPartyNetSales",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "OtherPartyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "OtherPartyItems",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Field Audits": {
+      "name": "Field Audits",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "FieldAuditSource",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CurrentFieldAudit",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FieldAuditScore",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FieldAuditFailures",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FieldAudits",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Gift Cards": {
+      "name": "Gift Cards",
+      "columns": [
+        {
+          "name": "CardBrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "StoreBrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "MergedBrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "date",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "TotalActivations",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "TotalSales",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartySales",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FirstPartyActivations",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartySales",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "ThirdPartyActivations",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "CardBrandSequence",
+        "StoreBrandSequence",
+        "MergedBrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Guest Satisfaction": {
+      "name": "Guest Satisfaction",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "date",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Surveys",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "TopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FriendlinessTopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "FriendlinessResponses",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CleanlinessTopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CleanlinessResponses",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "QualityTopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "QualityResponses",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "SpeedTopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "SpeedResponses",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "AccuracyTopScores",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "AccuracyResponses",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Alerts",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Escalations",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Loyalty": {
+      "name": "Loyalty",
+      "columns": [
+        {
+          "name": "CalendarDate",
+          "sql_type": "date",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Enrollments",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "LoyaltySales",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "LoyaltyEarnableSales",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "LoyaltyTraffic",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "CalendarDate",
+        "BrandSequence",
+        "SBRSequence"
+      ]
+    },
+    "Remodels": {
+      "name": "Remodels",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "RemodelsCompleted",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "RemodelsDue",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Reported Sales": {
+      "name": "Reported Sales",
+      "columns": [
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Comp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "TrafficComp",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "NetSalesCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "NetSalesPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "TrafficCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "TrafficPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "DiscountsCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "DiscountsPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CateringCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CateringPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CateringCheckCountCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        },
+        {
+          "name": "CateringCheckCountPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": true,
+          "nullable": true
+        }
+      ],
+      "role": "fact",
+      "primary_key": [
+        "BrandSequence",
+        "SBRSequence",
+        "CalendarDate"
+      ]
+    },
+    "Unit": {
+      "name": "Unit",
+      "columns": [
+        {
+          "name": "UnitNumber",
+          "sql_type": "nvarchar",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "AcceptsGiftCards",
+          "sql_type": "varchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Address",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "City",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CloseDate",
+          "sql_type": "datetime",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CoBrandGroupNumber",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CoBranded",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CompanyOwned",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Country",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "DistrictManager",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "DMA",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FranchiseBusinessConsultant",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "MarketingManager",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Franchisee",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FranchisePartner",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FranchiseeGroup",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FranchiseType",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "HasLegacyUnitNumber",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Latitude",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "LeaseExpirationDate",
+          "sql_type": "datetime",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "LicenseType",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Longitude",
+          "sql_type": "numeric",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "NextRemodelDate",
+          "sql_type": "datetime",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "OpenDate",
+          "sql_type": "datetime",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "PointOfSale",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Region",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "RVP",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "SBRName",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SiteSpecificLocation",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "State",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "SBRStatus",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "StoreType",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Venue",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "VenueTradNonTradByFreq",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "ZipCode",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        }
+      ],
+      "role": "dimension",
+      "primary_key": [
+        "SBRSequence"
+      ]
+    },
+    "Unit Ranking Base": {
+      "name": "Unit Ranking Base",
+      "columns": [
+        {
+          "name": "SBRBrand",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FBC",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "FranchiseeEntity",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Franchisee",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "SBRNumber",
+          "sql_type": "nvarchar",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "SBRSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "CalendarDate",
+          "sql_type": "datetime",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Ranked",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "Comped",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CompSalesCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CompSalesPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CompTrafficCY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "CompTrafficPY",
+          "sql_type": "float",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": true
+        },
+        {
+          "name": "BrandSequence",
+          "sql_type": "bigint",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        }
+      ],
+      "role": "dimension",
+      "primary_key": [
+        "SBRSequence",
+        "BrandSequence",
+        "CalendarDate"
+      ]
+    },
+    "DimDate": {
+      "name": "DimDate",
+      "role": "dimension",
+      "primary_key": [
+        "CalendarDate"
+      ],
+      "synthetic": true,
+      "columns": [
+        {
+          "name": "CalendarDate",
+          "sql_type": "date",
+          "is_key": true,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "DateKey",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Year",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Quarter",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Month",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "MonthName",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "Week",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "DayOfMonth",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "DayOfWeek",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "DayName",
+          "sql_type": "nvarchar",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "IsWeekend",
+          "sql_type": "bit",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "IsHoliday",
+          "sql_type": "bit",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "FiscalYear",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        },
+        {
+          "name": "FiscalQuarter",
+          "sql_type": "int",
+          "is_key": false,
+          "is_measure": false,
+          "nullable": false
+        }
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "from_table": "Availability",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Availability",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Availability",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Brand Targets",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Brand Targets",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Food Safety",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Food Safety",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Food Safety",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Catering",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Catering",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Catering",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Digital Sales",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Digital Sales",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Digital Sales",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Field Audits",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Field Audits",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Field Audits",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Gift Cards",
+      "from_column": "CardBrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Gift Cards",
+      "from_column": "StoreBrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Gift Cards",
+      "from_column": "MergedBrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Gift Cards",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Gift Cards",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Guest Satisfaction",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Guest Satisfaction",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Guest Satisfaction",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Loyalty",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Loyalty",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Loyalty",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Remodels",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Remodels",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Remodels",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    },
+    {
+      "from_table": "Reported Sales",
+      "from_column": "BrandSequence",
+      "to_table": "Brand",
+      "to_column": "BrandSequence"
+    },
+    {
+      "from_table": "Reported Sales",
+      "from_column": "SBRSequence",
+      "to_table": "Unit",
+      "to_column": "SBRSequence"
+    },
+    {
+      "from_table": "Reported Sales",
+      "from_column": "CalendarDate",
+      "to_table": "DimDate",
+      "to_column": "CalendarDate"
+    }
+  ],
+  "volume_strategy": {
+    "Availability": "daily_per_unit",
+    "Brand": 50,
+    "Brand Targets": "monthly_per_brand",
+    "Food Safety": "daily_per_unit",
+    "Catering": "daily_per_unit",
+    "Digital Sales": "daily_per_unit",
+    "Field Audits": "daily_per_unit",
+    "Gift Cards": "daily_per_unit",
+    "Guest Satisfaction": "daily_per_unit",
+    "Loyalty": "daily_per_unit",
+    "Remodels": "daily_per_unit",
+    "Reported Sales": "daily_per_unit",
+    "Unit": 8000,
+    "Unit Ranking Base": "derived",
+    "DimDate": 3653
+  },
+  "notes": {
+    "grain": "Most fact tables are at (BrandSequence, SBRSequence, CalendarDate) daily grain.",
+    "Brand Targets": "Brand-level grain (BrandSequence, CalendarDate) \u2014 monthly targets.",
+    "Gift Cards": "Has three Brand-role FKs (Card/Store/Merged) all referencing Brand.BrandSequence.",
+    "Unit": "Acts as the Store dimension; SBRSequence is its PK and a FK target for facts.",
+    "Unit Ranking Base": "Snapshot/ranking dimension used for comp-store calculations; derived from Unit + Reported Sales."
+  }
+}

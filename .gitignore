@@ -1,0 +1,30 @@
+# Generated output directories
+/TableAU Analysis/output/
+/TableAU Analysis/udi_data_gen/output/
+/TableAU Analysis/POC/s107_output/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Binary project files
+*.pbix
+*.twb
+*.twbx
