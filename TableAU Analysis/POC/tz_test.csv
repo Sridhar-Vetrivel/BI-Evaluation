@@ -1,0 +1,7 @@
+OrderID,OrderTimestamp,Region
+1,2025-06-09 08:00:00,East
+2,2025-06-09 08:00:00,Central
+3,2025-06-09 08:00:00,Mountain
+4,2025-06-09 08:00:00,Pacific
+5,2025-06-09 13:00:00,East
+6,2025-06-09 18:00:00,Pacific
